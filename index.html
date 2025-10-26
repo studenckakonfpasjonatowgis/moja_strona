@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studencka Konferencja Pasjonatów GIS</title>
+  <meta name="description"
+    content="Oficjalna strona Studenckiej Konferencji Pasjonatów GIS — program, rejestracja, komitety, partnerzy i kontakt." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Studencka Konferencja Pasjonatów GIS" />
+  <meta property="og:description" content="Dołącz do społeczności GIS! " />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://twojadomena.pl" />
+  <meta property="og:image"
+    content=""C:\Users\justy\Downloads\zielone_gmail (1).png"" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon"
+    href=""C:\Users\justy\Downloads\zielone_gmail (1).png"" />
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #0f172a;
+      --card: #0f2030;
+      --muted: #9fb3c8;
+      --text: #e6eef7;
+      --accent: #0ea5a4;
+      /* teal-500 */
+      --accent-600: #0d9488;
+      --accent-700: #0f766e;
+      --ring: rgba(14, 165, 164, .35);
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(14, 165, 164, .15), transparent 55%),
+        radial-gradient(900px 600px at -10% 10%, rgba(99, 102, 241, .12), transparent 55%),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    /* Layout */
+    .container {
+      width: min(1100px, 100% - 32px);
+      margin-inline: auto
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 18, 32, .7);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .brand {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text)
+    }
+
+    .brand .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #22d3ee);
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .brand strong {
+      font-weight: 800;
+      letter-spacing: .4px
+    }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--text);
+      background: rgba(255, 255, 255, .06);
+      outline: none
+    }
+
+    .mobile-toggle {
+      display: none
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(14, 165, 164, .15);
+      border: 1px solid rgba(14, 165, 164, .35);
+      color: #b9f2ee;
+      font-weight: 700;
+      letter-spacing: .3px;
+      font-size: 1.8rem;
+    }
+
+    .title {
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      line-height: 1.15;
+      margin: 12px 0 12px;
+      font-weight: 800
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      margin: 0 0 24px
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--accent), #22d3ee);
+      color: #00151a;
+      border: none
+    }
+
+    .btn--ghost:hover {
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .chip {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono";
+      font-size: .85rem;
+      padding: .35rem .6rem;
+      border-radius: 8px;
+      background: #0b1a23;
+      border: 1px solid rgba(255, 255, 255, .08);
+      color: #bcd6e5
+    }
+
+    .hero-card {
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center
+    }
+
+    .stat b {
+      font-size: 1.4rem
+    }
+
+    .countdown {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      flex-wrap: wrap
+    }
+
+    .cd-box {
+      background: #061019;
+      border: 1px solid rgba(14, 165, 164, .35);
+      border-radius: 12px;
+      padding: 10px 12px;
+      min-width: 86px;
+      text-align: center
+    }
+
+    .cd-box b {
+      display: block;
+      font-size: 1.35rem
+    }
+
+    /* Sections */
+    section {
+      padding: 56px 0
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      margin: 0 0 16px;
+      font-weight: 800
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px
+    }
+
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    .grid.cols-2 {
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 18px
+    }
+
+    .card h3 {
+      margin: 0 0 8px
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 16px
+    }
+
+    .list li {
+      margin: .35rem 0
+    }
+
+    /* Table (program) */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      overflow: hidden;
+      border-radius: 12px
+    }
+
+    thead th {
+      background: rgba(14, 165, 164, .1);
+      color: #bbfff8;
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    tbody td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    tbody tr:hover {
+      background: rgba(255, 255, 255, .03)
+    }
+
+    /* Accordion (FAQ) */
+    details {
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, .03)
+    }
+
+    details+details {
+      margin-top: 10px
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700
+    }
+
+    summary:focus {
+      outline: 2px solid var(--ring);
+      border-radius: 8px
+    }
+
+    /* Footer */
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .02)
+    }
+
+    /* Utilities */
+    .center {
+      text-align: center
+    }
+
+    .pill {
+      display: inline-block;
+      padding: .35rem .7rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .12)
+    }
+
+    .note {
+      font-size: .92rem;
+      color: var(--muted)
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .grid.cols-3 {
+        grid-template-columns: 1fr
+      }
+
+      .grid.cols-2 {
+        grid-template-columns: 1fr
+      }
+
+      nav ul {
+        display: none
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, .12);
+        background: transparent;
+        color: var(--text)
+      }
+
+      .drawer {
+        position: fixed;
+        inset: 64px 12px auto 12px;
+        background: #0b1220;
+        border: 1px solid rgba(255, 255, 255, .12);
+        border-radius: 14px;
+        padding: 12px;
+        display: none;
+        box-shadow: var(--shadow)
+      }
+
+      .drawer.open {
+        display: block
+      }
+
+      .drawer a {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 10px
+      }
+
+      .stats {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    @media (max-width: 520px) {
+      .stats {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+      top: 12px;
+      width: auto;
+      height: auto;
+      background: #000;
+      color: #fff;
+      padding: .5rem .75rem;
+      border-radius: 8px
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Studencka Konferencja Pasjonatów GIS",
+    "startDate": "2025-12-12T09:00:00+01:00",
+    "endDate": "2025-12-14T18:00:00+01:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "HP Park, Warszawska 119 Olsztyn",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Olsztyn",
+        "addressCountry": "PL"
+      }
+    },
+    "image": ["https://twojadomena.pl/og-image.png"],
+    "description": "Konferencja dla studentów i pasjonatów GIS: referaty, warsztaty, networking.",
+    "organizer": {
+      "@type": "Organization",
+      "name": "Międzynarodowe Koło Naukowo-Badawcze GIScode",
+      "url": "https://twojadomena.pl"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+
+  <header aria-label="Górna nawigacja">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Strona główna SKPGIS">
+  <img src="C:\Users\justy\Downloads\zielone_gmail (1).png" alt="Moje zdjęcie" class="logo"
+       style="width:36px; height:36px; border-radius:50%; object-fit:cover; box-shadow:0 10px 25px rgba(0,0,0,0.35);">
+  <strong>Studencka Konferencja Pasjonatów GIS</strong>
+</a>
+      </a>
+      <nav aria-label="Nawigacja główna">
+        <ul>
+          <li><a href="#o-konferencji">O konferencji</a></li>
+          <li><a href="#zakres">Zakres</a></li>
+          <li><a href="#program">Program</a></li>
+          <li><a href="#komitety">Komitet</a></li>
+          <li><a href="#rejestracja">Rejestracja</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Otwórz menu">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">Studencka Konferencja Pasjonatów GIS</span>
+          <h1 class="title">Geo‑inspiracje, praktyczne warsztaty i sieć kontaktów w sercu społeczności GIS.</h1>
+          <p class="lead">Zapraszamy studentów i entuzjastów geoinformacji z całej Polski.</p>
+
+          <div class="cta-row" role="group" aria-label="Przyciski działań głównych">
+            <a class="btn btn--primary" href="#rejestracja">Zarejestruj się</a>
+            <a class="btn btn--ghost" href="#program">Zobacz program</a>
+            <span class="chip">12-14 grudnia 2025 • Olsztyn </span>
+          </div>
+
+          <div class="countdown" aria-live="polite" aria-label="Licznik do rozpoczęcia">
+            <div class="cd-box"><b id="cd-days">--</b><span>dni</span></div>
+            <div class="cd-box"><b id="cd-hours">--</b><span>godzin</span></div>
+            <div class="cd-box"><b id="cd-mins">--</b><span>minut</span></div>
+            <div class="cd-box"><b id="cd-secs">--</b><span>sekund</span></div>
+          </div>
+
+          <div class="stats" aria-label="Liczby konferencji">
+            <div class="stat"><b>50</b>
+              <div>uczestników</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Informacje organizacyjne">
+          <h2 style="margin:0 0 10px">Informacje w pigułce</h2>
+          <ul class="list">
+            <li><b>Data:</b> 12-14.12.2025</li>
+            <li><b>Miejsce:</b> HP Park Olsztyn, Warszawska 119</li>
+            <li><b>Tryb:</b> stacjonarnie</li>
+            <li><b>Zgłoszenia referatów:</b> do 15.11.2025</li>
+            <li><b>Potwierdzenia przyjęcia:</b> do 30.11.2025</li>
+            <li><b>Opłata konferencyjna:</b> 450zł/os</li>
+          </ul>
+          <p class="note">Opłąta konferencyjna nie obejmuje noclegu</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- O KONFERENCJI -->
+    <section id="o-konferencji">
+      <div class="container grid cols-2">
+        <div class="card">
+          <h2 class="section-title">O konferencji</h2>
+          <p>I edycja konferencji łączącej studentów i pasjonatów GIS, teledetekcji i kartografii. Stawiamy na wymianę doświadczeń,
+            prezentacje projektów, dobre praktyki i networking między uczelniami oraz branżą.</p>
+          <ul class="list">
+            <li>Ścieżki: badawcza, projektowa, praktyczna (case studies).</li>
+            <li>Panele: GeoAI, open‑source GIS, dane przestrzenne w administracji, GIS mobilny.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Cele wydarzenia</h3>
+          <ul class="list">
+            <li>Integracja społeczności GIS i budowanie sieci kontaktów.</li>
+            <li>Upowszechnianie najnowszych trendów: GeoAI, 3D, automatyzacja, analiza wielokryterialna.</li>
+            <li>Wymiana wiedzy między środowiskiem akademickim i praktykami.</li>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZAKRES -->
+    <section id="zakres">
+      <div class="container">
+        <h2 class="section-title">Zakres tematyczny</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>GeoAI i automatyzacja</h3>
+            <p class="muted">Uczenie maszynowe, segmentacja, klasyfikacja, modele przestrzenne.</p>
+          </div>
+          <div class="card">
+            <h3>GIS open‑source</h3>
+            <p class="muted">QGIS, GRASS, PostGIS, Python, przepływy pracy.</p>
+          </div>
+          <div class="card">
+            <h3>Teledetekcja i RS</h3>
+            <p class="muted">Dane satelitarne i lotnicze, chmury punktów, radarowe.</p>
+          </div>
+          <div class="card">
+            <h3>Modelowanie 3D</h3>
+            <p class="muted">CityGML, fotogrametria, BIM‑GIS, wizualizacja.</p>
+          </div>
+          <div class="card">
+            <h3>Dane w administracji</h3>
+            <p class="muted">Planowanie przestrzenne, INSPIRE, SDI, geoankiety.</p>
+          </div>
+          <div class="card">
+            <h3>GIS mobilny</h3>
+            <p class="muted">Badania terenowe, pozyskiwanie danych, humanitarne GIS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM -->
+    <section id="program">
+      <div class="container">
+        <h2 class="section-title">Program wydarzenia</h2>
+        <div class="card">
+          <p class="note" style="margin-top:12px">Szczegółowy harmonogram i prelegenci zostaną ogłoszeni po zamknięciu
+            naboru wystąpień.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KOMITETY -->
+    <section id="komitety">
+      <div class="container grid cols-2">
+        <div class="card">
+          <h2 class="section-title">Komitet naukowy</h2>
+          <ul class="list">
+            <li>dr hab. Marek Ogryzek, prof. UWM — przewodniczący/a</li>
+            <li>dr inż. Mateusz Cisk (Uniwersytet Warmińsko-Mazurski)/li>
+            <li>dr inż. Agnieszka Cienciała (Politechnika Świętokrzyska)</li>
+            <li>dr inż. Teresa Front-Dąbrowska (Politechnika Świętokrzyska)</li>
+            <li>dr Łukasz Wiśniewski (Uniwersytet Mikołaja Kopernika w Toruniu)</li>
+            <li> dr Radosław Golba (Uniwersytet Mikołaja Kopernika w Toruniu)</li>
+            <li>dr Maciej Markowski (Uniwersytet Gdański)</li>
+            <li>mgr Zbigniew Trusewicz (Uniwersytet Gdański)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2 class="section-title">Komitet organizacyjny</h2>
+          <ul class="list">
+            <li>Justyna Zygadło — przewodnicząca</li>
+            <li>mgr inż. Bartłomiej Eźlakowski</li>
+            <li>Weronika Runge</li>
+            <li>Anna Styczyszyn</li>
+            <li>Maria Jastrzębska</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- REJESTRACJA -->
+    <section id="rejestracja">
+      <div class="container grid cols-2">
+        <div class="card">
+          <h2 class="section-title">Rejestracja uczestników</h2>
+          <p>Wypełnij formularz zgłoszeniowy, aby potwierdzić udział. Jeśli planujesz wystąpienie, dołącz abstrakt
+            (150–250 słów).</p>
+          <div class="cta-row">
+            <a class="btn btn--primary" href="#" aria-label="Formularz rejestracyjny">Formularz rejestracji</a>
+            <a class="btn btn--ghost" href="#" aria-label="Zgłoś referat">Zgłoś referat</a>
+          </div>
+          <p class="note">Termin zgłoszeń: <b>15.11.2025</b>. Powiadomienia o przyjęciu: do <b>30.11.2025</b>.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Opłaty i zasady</h3>
+          <ul class="list">
+            <li>Udział: <b>450 zł</b>.</li>
+            <li>Zakwaterowanie: Istnieje możliwość zarezerwowania noclegu w HP Park w specjalnej cenie dla uczestników.</li>
+            <li>Limit miejsc: 50 (decyduje kolejność zgłoszeń).</li>
+            <li>Certyfikat uczestnictwa dla prelegentów i uczestników.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERZY / PATRONI -->
+    <section id="partnerzy">
+      <div class="container">
+        <h2 class="section-title">Partnerzy i patroni</h2>
+        <div class="grid cols-3">
+          <div class="card center">
+            <div class="pill">Uniwersytet Warmińsko-Mazurski</div>
+          </div>
+          <div class="card center">
+            <div class="pill">HP Park</div>
+          </div>
+          <div class="card center">
+            <div class="pill">ESRI Polska</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MIEJSCE -->
+    <section id="miejsce">
+  <div class="container grid cols-2">
+    <div class="card">
+      <h2 class="section-title">Miejsce</h2>
+      <p>HP Park Olsztyn, warszawska 119</p>
+    </div>
+    <div class="card">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89558.04457775738!2d20.37893631346305!3d53.74715764431246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e27f4b41abd643%3A0x8809b10f807f8fca!2sHotel%20Olsztyn%20HP%20Park!5e1!3m2!1spl!2spl!4v1761401979426!5m2!1spl!2spl" 
+          width="400" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .map-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 proporcje */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+  }
+</style>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">Najczęstsze pytania</h2>
+        <details>
+          <summary>Czy mogę zgłosić projekt zespołowy?</summary>
+          <p>Tak. W formularzu wskaż autorów i osobę prezentującą.</p>
+        </details>
+        <details>
+          <summary>Czy są przewidziane certyfikaty?</summary>
+          <p>Tak, otrzymają je prelegenci i uczestnicy obecni na miejscu.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt">
+      <div class="container grid cols-2">
+        <div class="card">
+          <h2 class="section-title">Kontakt</h2>
+          <p>Masz pytania? Napisz do nas:</p>
+          <ul class="list">
+            <li><b>E‑mail:</b> studenckakonfpasjonatowgis@gmail.com</li>
+            <li><b>Facebook/Instagram:</b> giscode_uwm</li>
+          </ul>
+        </div>
+        <form class="card" aria-label="Formularz kontaktowy"
+          onsubmit="event.preventDefault(); alert('Dziękujemy! Skontaktujemy się wkrótce.'); this.reset();">
+          <h3 style="margin-top:0">Napisz wiadomość</h3>
+          <label>Imię i nazwisko<br>
+            <input required name="name"
+              style="width:100%; margin-top:6px; background:#0b1a23; border:1px solid rgba(255,255,255,.18); color:var(--text); border-radius:10px; padding:10px">
+          </label><br><br>
+          <label>E‑mail<br>
+            <input required type="email" name="email"
+              style="width:100%; margin-top:6px; background:#0b1a23; border:1px solid rgba(255,255,255,.18); color:var(--text); border-radius:10px; padding:10px">
+          </label><br><br>
+          <label>Wiadomość<br>
+            <textarea required name="msg" rows="4"
+              style="width:100%; margin-top:6px; background:#0b1a23; border:1px solid rgba(255,255,255,.18); color:var(--text); border-radius:10px; padding:10px"></textarea>
+          </label><br><br>
+          <button class="btn btn--primary" type="submit">Wyślij</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="grid cols-2">
+        <div>
+          <strong>SKPGIS</strong><br>
+          <span class="muted">© 2025 • MKNB GIScode • UWM</span>
+        </div>
+        <div class="right" style="text-align:right">
+          <a href="#o-konferencji" class="muted" style="text-decoration:none">O konferencji</a> •
+          <a href="#rejestracja" class="muted" style="text-decoration:none">Rejestracja</a> •
+          <a href="#kontakt" class="muted" style="text-decoration:none">Kontakt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Wróć do góry"
+    style="position:fixed; right:14px; bottom:14px; display:none; border-radius:999px; width:44px; height:44px; border:1px solid rgba(255,255,255,.2); background:linear-gradient(135deg, var(--accent), #22d3ee); box-shadow: var(--shadow); font-weight:900; color:#00151a">↑</button>
+
+  <script>
+    // Mobile drawer
+    const toggle = document.querySelector('.mobile-toggle');
+    const drawer = document.getElementById('drawer');
+    function closeDrawer() { drawer.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+    toggle?.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Back to top
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btt.style.display = window.scrollY > 600 ? 'block' : 'none';
+    });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Countdown to event (set your date/time in Europe/Warsaw, UTC+1/+2)
+    const target = new Date('2025-12-12T09:00:00+01:00').getTime();
+const dEl = document.getElementById('cd-days'),
+      hEl = document.getElementById('cd-hours'),
+      mEl = document.getElementById('cd-mins'),
+      sEl = document.getElementById('cd-secs');
+
+function tick() {
+  const now = Date.now();
+  let diff = Math.max(0, target - now);
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24)); diff -= d * (1000 * 60 * 60 * 24);
+  const h = Math.floor(diff / (1000 * 60 * 60)); diff -= h * (1000 * 60 * 60);
+  const m = Math.floor(diff / (1000 * 60)); diff -= m * (1000 * 60);
+  const s = Math.floor(diff / 1000);
+
+  if (dEl) { dEl.textContent = d.toString().padStart(2, '0') }
+  if (hEl) { hEl.textContent = h.toString().padStart(2, '0') }
+  if (mEl) { mEl.textContent = m.toString().padStart(2, '0') }
+  if (sEl) { sEl.textContent = s.toString().padStart(2, '0') }
+}
+    tick(); setInterval(tick, 1000);
+  </script>
+</body>
+
+</html>
