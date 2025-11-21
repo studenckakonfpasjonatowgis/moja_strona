@@ -463,6 +463,27 @@
       padding: .5rem .75rem;
       border-radius: 8px
     }
+
+    .alert {
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+    }
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
   </style>
 
   <!-- Schema.org JSON-LD -->
@@ -521,6 +542,12 @@
   </header>
 
   <main id="main">
+
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Uwaga !</strong> Rejestracja Przedłużona do 15.11.2025 - Więcej informacji na stronie wydarzenia na Facebooku 
+      <a href="https://www.facebook.com/share/1GAvPu5tZ7/">LINK</a>
+    </div>
     <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
