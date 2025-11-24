@@ -486,6 +486,16 @@
     .closebtn:hover {
       color: black;
     }
+
+    .media-patron {
+      /* Styl, który wizualnie wyróżnia patrona medialnego */
+      border: 2px solid var(--accent) !important; /* Pogrubiona ramka w kolorze akcentu */
+      box-shadow: 0 0 15px rgba(14, 165, 164, 0.5), var(--shadow); /* Świecący cień */
+      background: linear-gradient(180deg, rgba(14, 165, 164, .15), rgba(14, 165, 164, .05)) !important; /* Subtelne tło akcentujące */
+      font-weight: 700;
+      transform: scale(1.02); /* Lekkie powiększenie, aby był bardziej widoczny */
+      transition: all 0.3s ease;
+    }
   </style>
 
   <!-- Schema.org JSON-LD -->
@@ -725,7 +735,7 @@
           <div class="card center">
             Geo-System Sp. z o.o. 
           </div>
-          <div class="card center">
+          <div class="card center media-patron">
             Geoforum.pl
           </div>
         </div>
